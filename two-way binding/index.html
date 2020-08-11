@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg.name" />
+        <div>姓名：{{msg.name}}</div>
+        <div>年龄：{{msg.age}}</div>
+        <div v-if="isShow">{{getNewName}}</div>
+        <button v-on:click="changeAge">永葆青春18岁</button>
+    </div>
+    <script src="./js/vue0.0.min.js"></script>
+    <script>
+        let vm = new Vue({
+            el : '#app',
+            data : {
+                msg : {
+                    name : 'hehejie',
+                    age : 21
+                },
+                isShow : true
+            },
+            computed : {
+                getNewName(){
+                    return '我叫：' + this.msg.name
+                }
+            },
+            methods : {
+                changeAge(){
+                    console.log("永葆青春18岁");
+                    this.msg.age = 18;
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
